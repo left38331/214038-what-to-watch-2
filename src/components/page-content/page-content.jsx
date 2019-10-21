@@ -1,10 +1,11 @@
 import React from 'react';
-import {Genre} from "components/genre/genre";
-import {CardFilm} from "components/card-film/card-film";
+import {Genre} from "../genre/genre";
+import {CardFilm} from "../card-film/card-film";
 
 export const PageContent = () => {
   const allGenres = [`Comedies`, `Crime`, `Documentary`, `Dramas`, `Horror`, `Kids & Family`, `Romance`, `Sci-Fi`, `Thrillers`];
   const filmsName = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`, `Agent 007`];
+  const clickTitle = () => {};
 
   return <div className="page-content">
     <section className="catalog">
@@ -18,7 +19,7 @@ export const PageContent = () => {
       </ul>
 
       <div className="catalog__movies-list">
-        {filmsName.map((item, i) => <CardFilm key={item + i} name={item}/>)}
+        {filmsName.map((item, i) => <CardFilm key={item + i} name={item} clickTitle={clickTitle}/>)}
       </div>
 
       <div className="catalog__more">

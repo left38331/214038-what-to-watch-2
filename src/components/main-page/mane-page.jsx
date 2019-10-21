@@ -1,6 +1,6 @@
 import React from 'react';
-import {MovieCard} from "components/movie-card/movie-card";
-import {PageContent} from "components/page-content/page-content";
+import {MovieCard} from "../movie-card/movie-card";
+import {PageContent} from "../page-content/page-content";
 
 export const ManePage = () => {
   return <div>
