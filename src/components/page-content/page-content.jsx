@@ -1,6 +1,6 @@
 import React from 'react';
-import {Genre} from "../genre/genre";
-import {CardFilm} from "../card-film/card-film";
+import {Genre} from "components/genre/genre";
+import {CardFilm} from "components/card-film/card-film";
 
 export const PageContent = () => {
   const allGenres = [`Comedies`, `Crime`, `Documentary`, `Dramas`, `Horror`, `Kids & Family`, `Romance`, `Sci-Fi`, `Thrillers`];

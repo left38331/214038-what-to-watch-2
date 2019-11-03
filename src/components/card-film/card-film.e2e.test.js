@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {CardFilm} from "./card-film";
+import {CardFilm} from "components/card-film/card-film";
 
 it(`Test click on title`, () => {
   const clickHandler = jest.fn();
