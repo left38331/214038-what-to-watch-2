@@ -3,6 +3,7 @@
 exports[`Render correctly card-film component 1`] = `
 <article
   className="small-movie-card catalog__movies-card"
+  onMouseEnter={[Function]}
 >
   <div
     className="small-movie-card__image"
@@ -22,7 +23,7 @@ exports[`Render correctly card-film component 1`] = `
       href="movie-page.html"
       onClick={[Function]}
     >
-      Fantastic Beasts
+      Fantastic Beats
     </a>
   </h3>
 </article>

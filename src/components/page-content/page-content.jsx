@@ -1,10 +1,10 @@
 import React from 'react';
 import {Genre} from "components/genre/genre";
-import {CardFilm} from "components/card-film/card-film";
+import {MoviesList} from "components/movies-list/movies-list";
+import PropTypes from "prop-types";
 
-export const PageContent = () => {
+export const PageContent = (props) => {
   const allGenres = [`Comedies`, `Crime`, `Documentary`, `Dramas`, `Horror`, `Kids & Family`, `Romance`, `Sci-Fi`, `Thrillers`];
-  const filmsName = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`, `Agent 007`];
   const clickTitle = () => {};
 
   return <div className="page-content">
@@ -18,9 +18,7 @@ export const PageContent = () => {
         {allGenres.map((item, i) => <Genre key={item + i} genre={item} />)}
       </ul>
 
-      <div className="catalog__movies-list">
-        {filmsName.map((item, i) => <CardFilm key={item + i} name={item} clickTitle={clickTitle}/>)}
-      </div>
+      <MoviesList films={props.films} clickTitle={clickTitle} />
 
       <div className="catalog__more">
         <button className="catalog__button" type="button">Show more</button>
@@ -41,4 +39,13 @@ export const PageContent = () => {
       </div>
     </footer>
   </div>;
+};
+
+PageContent.propTypes = {
+  films: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+    src: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+  }))
 };
