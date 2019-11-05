@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import {Genre} from "components/genre/genre";
+import {Genre} from 'components/genre/genre';
 
 it(`Render correctly genre component`, () => {
   const genreComponent = renderer.create(<Genre

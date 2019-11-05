@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {CardFilm} from "components/card-film/card-film";
-import {films} from "../../mocks/films";
+import {CardFilm} from 'components/card-film/card-film';
+import {films} from '../../mocks/films';
 
 it(`Test click on title`, () => {
   const hoverHandler = jest.fn();

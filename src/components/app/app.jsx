@@ -1,9 +1,9 @@
 import React from 'react';
-import {ManePage} from "components/main-page/mane-page";
-import PropTypes from "prop-types";
+import {MainPage} from 'components/main-page/main-page';
+import PropTypes from 'prop-types';
 
 export const App = (props) => {
-  return <ManePage
+  return <MainPage
     films={props.films}
   />;
 };

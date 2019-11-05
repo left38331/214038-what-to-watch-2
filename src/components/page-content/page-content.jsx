@@ -1,7 +1,7 @@
 import React from 'react';
-import {Genre} from "components/genre/genre";
-import {MoviesList} from "components/movies-list/movies-list";
-import PropTypes from "prop-types";
+import {Genre} from 'components/genre/genre';
+import {MoviesList} from 'components/movies-list/movies-list';
+import PropTypes from 'prop-types';
 
 export const PageContent = (props) => {
   const allGenres = [`Comedies`, `Crime`, `Documentary`, `Dramas`, `Horror`, `Kids & Family`, `Romance`, `Sci-Fi`, `Thrillers`];
