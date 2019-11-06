@@ -4,14 +4,15 @@ exports[`Render correctly card-film component 1`] = `
 <article
   className="small-movie-card catalog__movies-card"
   onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
   <div
     className="small-movie-card__image"
   >
-    <img
-      alt="Fantastic Beasts: The Crimes of Grindelwald"
+    <video
       height="175"
-      src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+      poster="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+      src="https://www.kinomania.ru/load/n?file=//fs.kinomania.ru/trailers/fbwft-rutlr3_854.mp4"
       width="280"
     />
   </div>

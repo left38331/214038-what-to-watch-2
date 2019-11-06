@@ -1,15 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {VideoPlayer} from 'components/video-player/video-player';
 
 export const CardFilm = (props) => {
-  const {film, clickTitle, hoverCardHandler} = props;
-
-  return <article className="small-movie-card catalog__movies-card" onMouseEnter={()=> hoverCardHandler(film)}>
+  return <article className="small-movie-card catalog__movies-card" onMouseEnter={()=> props.hoverCardHandler(props.film)} onMouseLeave={props.leaveCardHandler}>
     <div className="small-movie-card__image">
-      <img src={film.src} alt={film.alt} width="280" height="175"/>
+      <VideoPlayer
+        poster={props.film.poster}
+        preview={props.film.preview}
+        isPlaying={props.isPlaying}
+        muted={true}
+      />
     </div>
     <h3 className="small-movie-card__title">
-      <a className="small-movie-card__link" href={film.link} onClick={clickTitle}>{film.title}</a>
+      <a className="small-movie-card__link" href={props.film.link} onClick={props.clickTitle}>{props.film.title}</a>
     </h3>
   </article>;
 };
@@ -18,9 +22,12 @@ CardFilm.propTypes = {
   film: PropTypes.shape({
     title: PropTypes.string.isRequired,
     alt: PropTypes.string.isRequired,
-    src: PropTypes.string.isRequired,
+    poster: PropTypes.string.isRequired,
+    preview: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
   }),
   clickTitle: PropTypes.func.isRequired,
-  hoverCardHandler: PropTypes.func.isRequired
+  hoverCardHandler: PropTypes.func.isRequired,
+  leaveCardHandler: PropTypes.func.isRequired,
+  isPlaying: PropTypes.bool.isRequired
 };
