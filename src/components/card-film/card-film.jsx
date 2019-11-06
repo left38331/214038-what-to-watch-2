@@ -2,19 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export const CardFilm = (props) => {
-  const {name, clickTitle} = props;
+  const {film, clickTitle, hoverCardHandler} = props;
 
-  return <article className="small-movie-card catalog__movies-card">
+  return <article className="small-movie-card catalog__movies-card" onMouseEnter={()=> hoverCardHandler(film)}>
     <div className="small-movie-card__image">
-      <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175"/>
+      <img src={film.src} alt={film.alt} width="280" height="175"/>
     </div>
     <h3 className="small-movie-card__title">
-      <a className="small-movie-card__link" href="movie-page.html" onClick={clickTitle}>{name}</a>
+      <a className="small-movie-card__link" href={film.link} onClick={clickTitle}>{film.title}</a>
     </h3>
   </article>;
 };
 
 CardFilm.propTypes = {
-  name: PropTypes.oneOf([`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`, `Agent 007`]),
-  clickTitle: PropTypes.func.isRequired
+  film: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+    src: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+  }),
+  clickTitle: PropTypes.func.isRequired,
+  hoverCardHandler: PropTypes.func.isRequired
 };

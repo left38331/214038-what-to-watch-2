@@ -1,6 +1,18 @@
 import React from 'react';
-import {ManePage} from "components/main-page/mane-page";
+import {MainPage} from 'components/main-page/main-page';
+import PropTypes from 'prop-types';
 
-export const App = () => {
-  return <ManePage/>;
+export const App = (props) => {
+  return <MainPage
+    films={props.films}
+  />;
+};
+
+App.propTypes = {
+  films: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+    src: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+  }))
 };

@@ -121,6 +121,7 @@ exports[`Render correctly page-content component 1`] = `
     >
       <article
         className="small-movie-card catalog__movies-card"
+        onMouseEnter={[Function]}
       >
         <div
           className="small-movie-card__image"
@@ -140,20 +141,21 @@ exports[`Render correctly page-content component 1`] = `
             href="movie-page.html"
             onClick={[Function]}
           >
-            Fantastic Beasts
+            Fantastic Beats
           </a>
         </h3>
       </article>
       <article
         className="small-movie-card catalog__movies-card"
+        onMouseEnter={[Function]}
       >
         <div
           className="small-movie-card__image"
         >
           <img
-            alt="Fantastic Beasts: The Crimes of Grindelwald"
+            alt="Bohemian Rhapsody"
             height="175"
-            src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+            src="img/bohemian-rhapsody.jpg"
             width="280"
           />
         </div>
@@ -171,14 +173,15 @@ exports[`Render correctly page-content component 1`] = `
       </article>
       <article
         className="small-movie-card catalog__movies-card"
+        onMouseEnter={[Function]}
       >
         <div
           className="small-movie-card__image"
         >
           <img
-            alt="Fantastic Beasts: The Crimes of Grindelwald"
+            alt="Macbeth"
             height="175"
-            src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+            src="img/macbeth.jpg"
             width="280"
           />
         </div>
@@ -190,20 +193,21 @@ exports[`Render correctly page-content component 1`] = `
             href="movie-page.html"
             onClick={[Function]}
           >
-            Macbeth
+            Macbeth.jpg
           </a>
         </h3>
       </article>
       <article
         className="small-movie-card catalog__movies-card"
+        onMouseEnter={[Function]}
       >
         <div
           className="small-movie-card__image"
         >
           <img
-            alt="Fantastic Beasts: The Crimes of Grindelwald"
+            alt="Aviator"
             height="175"
-            src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+            src="img/aviator.jpg"
             width="280"
           />
         </div>
@@ -215,7 +219,33 @@ exports[`Render correctly page-content component 1`] = `
             href="movie-page.html"
             onClick={[Function]}
           >
-            Agent 007
+            Aviator
+          </a>
+        </h3>
+      </article>
+      <article
+        className="small-movie-card catalog__movies-card"
+        onMouseEnter={[Function]}
+      >
+        <div
+          className="small-movie-card__image"
+        >
+          <img
+            alt="War of the worlds"
+            height="175"
+            src="img/war-of-the-worlds.jpg"
+            width="280"
+          />
+        </div>
+        <h3
+          className="small-movie-card__title"
+        >
+          <a
+            className="small-movie-card__link"
+            href="movie-page.html"
+            onClick={[Function]}
+          >
+            War of the worlds
           </a>
         </h3>
       </article>
