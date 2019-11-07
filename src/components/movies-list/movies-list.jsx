@@ -27,7 +27,9 @@ export class MoviesList extends React.PureComponent {
       activeFilmId: null
     });
 
-    clearTimeout(this.timer);
+    if (this.timer) {
+      clearTimeout(this.timer);
+    }
   }
 
   render() {
