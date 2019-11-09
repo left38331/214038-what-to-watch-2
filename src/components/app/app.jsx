@@ -12,7 +12,8 @@ App.propTypes = {
   films: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     alt: PropTypes.string.isRequired,
-    src: PropTypes.string.isRequired,
+    poster: PropTypes.string.isRequired,
+    preview: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
   }))
 };
