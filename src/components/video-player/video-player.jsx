@@ -14,13 +14,15 @@ export class VideoPlayer extends React.PureComponent {
     video.muted = this.props.muted;
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
     const video = this._videoRef.current;
 
-    if (this.props.isPlaying) {
-      video.play();
-    } else {
-      video.load();
+    if (prevProps.isPlaying !== this.props.isPlaying) {
+      if (this.props.isPlaying) {
+        video.play();
+      } else {
+        video.load();
+      }
     }
   }
 

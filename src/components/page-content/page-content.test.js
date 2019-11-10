@@ -14,9 +14,13 @@ function createNodeMock(element) {
 
 it(`Render correctly page-content component`, () => {
   const options = {createNodeMock};
-  const pageContentComponent = renderer.create(<PageContent
-    films={films}
-  />, options).toJSON();
+  const props = {
+    genresList: [`Comedies`, `Drama`],
+    activeGenre: `Drama`,
+    onChangeGenre: ()=>{},
+    films
+  };
+  const pageContentComponent = renderer.create(<PageContent {...props}/>, options).toJSON();
 
   expect(pageContentComponent).toMatchSnapshot();
 });

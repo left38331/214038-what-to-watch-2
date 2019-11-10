@@ -9,7 +9,9 @@ it(`Test click on title`, () => {
   const props = {
     film: films[0],
     clickTitle: clickHandler,
-    hoverCardHandler: hoverHandler
+    hoverCardHandler: hoverHandler,
+    leaveCardHandler: ()=>{},
+    isPlaying: false
   };
   const cardFilmComponent = shallow(<CardFilm {...props}/>);
   const href = cardFilmComponent.find(`.small-movie-card__link`);

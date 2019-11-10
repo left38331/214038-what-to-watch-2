@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import {CardFilm} from 'components/card-film/card-film';
 
 export class MoviesList extends React.PureComponent {
