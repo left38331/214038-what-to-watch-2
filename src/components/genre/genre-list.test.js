@@ -5,7 +5,7 @@ import {GenreList} from 'components/genre/genre-list';
 it(`Render correctly genre list component`, () => {
   const props = {
     genresList: [`Comedies`, `Drama`],
-    activeGenre: `Drama`,
+    genre: `Drama`,
     onChangeGenre: ()=>{}
   };
   const genreComponent = renderer.create(<GenreList {...props} />).toJSON();

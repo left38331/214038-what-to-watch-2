@@ -1,6 +1,8 @@
-import {ActionCreator} from "./reducer";
-import {reducer} from "./reducer";
-import {films} from "./mocks/films";
+import {ActionCreator} from './reducer';
+import {reducer} from './reducer';
+
+import {genresList} from './utils';
+import {films} from './mocks/films';
 
 describe(`Action creators works correctly`, () => {
   it(`Action creator for change genre`, () => {
@@ -22,7 +24,8 @@ describe(`Reducer works correctly`, () => {
   it(`Reducer without additional parameters should return initial state`, () => {
     expect(reducer(undefined, {})).toEqual({
       genre: `All genres`,
-      listCardFilms: films
+      listCardFilms: films,
+      genresList: [...genresList]
     });
   });
 });

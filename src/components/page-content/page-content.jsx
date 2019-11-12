@@ -1,20 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-import {GenreList} from 'components/genre/genre-list';
-import {MoviesList} from 'components/movies-list/movies-list';
-import {genresList} from '../../utils';
+import GenreList from 'components/genre/genre-list';
+import MoviesList from 'components/movies-list/movies-list';
 
-export const PageContent = (props) => {
+export const PageContent = () => {
   const clickTitle = () => {};
 
   return <div className="page-content">
     <section className="catalog">
       <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-      <GenreList genresList={[...genresList]} activeGenre={props.activeGenre} onChangeGenre={props.onChangeGenre}/>
+      <GenreList/>
 
-      <MoviesList films={props.films} clickTitle={clickTitle} />
+      <MoviesList clickTitle={clickTitle} />
 
       <div className="catalog__more">
         <button className="catalog__button" type="button">Show more</button>
@@ -35,16 +33,4 @@ export const PageContent = (props) => {
       </div>
     </footer>
   </div>;
-};
-
-PageContent.propTypes = {
-  films: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired,
-    poster: PropTypes.string.isRequired,
-    preview: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
-  })),
-  activeGenre: PropTypes.string.isRequired,
-  onChangeGenre: PropTypes.func.isRequired,
 };

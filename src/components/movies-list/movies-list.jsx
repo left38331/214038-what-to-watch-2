@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 import {CardFilm} from 'components/card-film/card-film';
 
@@ -35,13 +36,13 @@ export class MoviesList extends React.PureComponent {
 
   render() {
     return <div className="catalog__movies-list">
-      {this.props.films.map((item) => <CardFilm key={item.id} film={item} clickTitle={this.props.clickTitle} hoverCardHandler={this.hoverCardHandler} isPlaying={this.state.activeFilmId === item[`id`]} leaveCardHandler={this.leaveCardHandler}/>)}
+      {this.props.listCardFilms.map((item) => <CardFilm key={item.id} film={item} clickTitle={this.props.clickTitle} hoverCardHandler={this.hoverCardHandler} isPlaying={this.state.activeFilmId === item[`id`]} leaveCardHandler={this.leaveCardHandler}/>)}
     </div>;
   }
 }
 
 MoviesList.propTypes = {
-  films: PropTypes.arrayOf(PropTypes.shape({
+  listCardFilms: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     alt: PropTypes.string.isRequired,
     poster: PropTypes.string.isRequired,
@@ -50,3 +51,9 @@ MoviesList.propTypes = {
   })),
   clickTitle: PropTypes.func.isRequired
 };
+
+const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  listCardFilms: state.listCardFilms
+});
+
+export default connect(mapStateToProps)(MoviesList);

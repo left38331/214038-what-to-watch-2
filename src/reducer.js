@@ -1,6 +1,7 @@
 import {films} from './mocks/films';
+import {genresList} from './utils';
 
-const isFilmsThisGenre = (genre) => {
+const getFilmsByGenre = (genre) => {
   if (genre === `All genres`) {
     return initialState.listCardFilms;
   }
@@ -10,7 +11,8 @@ const isFilmsThisGenre = (genre) => {
 
 const initialState = {
   genre: `All genres`,
-  listCardFilms: films
+  listCardFilms: films,
+  genresList: [...genresList]
 };
 
 export const ActionCreator = {
@@ -21,7 +23,7 @@ export const ActionCreator = {
 
   changeFilmsList: (genre) => ({
     type: `CHANGE_FILMS_LIST`,
-    payload: isFilmsThisGenre(genre)
+    payload: getFilmsByGenre(genre)
   })
 };
 
