@@ -15,7 +15,7 @@ function createNodeMock(element) {
 it(`Render correctly movies-list component`, () => {
   const options = {createNodeMock};
   const moviesListComponent = renderer.create(<MoviesList
-    films={films}
+    listCardFilms={films}
     hoverCardHandler = {()=>{}}
     clickTitle = {()=>{}}
   />, options).toJSON();

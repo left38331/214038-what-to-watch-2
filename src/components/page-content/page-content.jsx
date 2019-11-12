@@ -1,24 +1,18 @@
 import React from 'react';
-import {Genre} from 'components/genre/genre';
-import {MoviesList} from 'components/movies-list/movies-list';
-import PropTypes from 'prop-types';
 
-export const PageContent = (props) => {
-  const allGenres = [`Comedies`, `Crime`, `Documentary`, `Dramas`, `Horror`, `Kids & Family`, `Romance`, `Sci-Fi`, `Thrillers`];
+import GenreList from 'components/genre/genre-list';
+import MoviesList from 'components/movies-list/movies-list';
+
+export const PageContent = () => {
   const clickTitle = () => {};
 
   return <div className="page-content">
     <section className="catalog">
       <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-      <ul className="catalog__genres-list">
-        <li className="catalog__genres-item catalog__genres-item--active">
-          <a href="#" className="catalog__genres-link">All genres</a>
-        </li>
-        {allGenres.map((item, i) => <Genre key={item + i} genre={item} />)}
-      </ul>
+      <GenreList/>
 
-      <MoviesList films={props.films} clickTitle={clickTitle} />
+      <MoviesList clickTitle={clickTitle} />
 
       <div className="catalog__more">
         <button className="catalog__button" type="button">Show more</button>
@@ -39,14 +33,4 @@ export const PageContent = (props) => {
       </div>
     </footer>
   </div>;
-};
-
-PageContent.propTypes = {
-  films: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired,
-    poster: PropTypes.string.isRequired,
-    preview: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
-  }))
 };
