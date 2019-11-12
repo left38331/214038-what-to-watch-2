@@ -14,11 +14,14 @@ function createNodeMock(element) {
 
 it(`Render correctly movies-list component`, () => {
   const options = {createNodeMock};
-  const moviesListComponent = renderer.create(<MoviesList
-    listCardFilms={films}
-    hoverCardHandler = {()=>{}}
-    clickTitle = {()=>{}}
-  />, options).toJSON();
+  const props = {
+    listCardFilms: films,
+    hoverCardHandler: ()=>{},
+    leaveCardHandler: ()=>{},
+    isPlaying: -1,
+    clickTitle: ()=>{},
+  };
+  const moviesListComponent = renderer.create(<MoviesList {...props}/>, options).toJSON();
 
   expect(moviesListComponent).toMatchSnapshot();
 });
