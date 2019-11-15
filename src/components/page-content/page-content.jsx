@@ -1,7 +1,10 @@
 import React from 'react';
 
-import GenreList from 'components/genre/genre-list';
+import GenreList from 'components/genre-list/genre-list';
 import MoviesList from 'components/movies-list/movies-list';
+import withActiveItem from "../../hocs/with-active-item/with-active-item";
+
+const MoviesListWrapped = withActiveItem(MoviesList);
 
 export const PageContent = () => {
   const clickTitle = () => {};
@@ -12,7 +15,7 @@ export const PageContent = () => {
 
       <GenreList/>
 
-      <MoviesList clickTitle={clickTitle} />
+      <MoviesListWrapped clickTitle={clickTitle} />
 
       <div className="catalog__more">
         <button className="catalog__button" type="button">Show more</button>
