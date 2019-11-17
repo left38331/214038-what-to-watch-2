@@ -1,5 +1,6 @@
-import React from "react";
+import React from 'react';
 import {shallow} from 'enzyme';
+
 import withActiveItem from './with-active-item';
 
 const MockComponent = () => <div/>;

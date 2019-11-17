@@ -13,7 +13,7 @@ export const CardFilm = (props) => {
       />
     </div>
     <h3 className="small-movie-card__title">
-      <a className="small-movie-card__link" href={props.film.link} onClick={props.clickTitle}>{props.film.title}</a>
+      <a className="small-movie-card__link" href="#" onClick={props.clickTitle}>{props.film.title}</a>
     </h3>
   </article>;
 };
@@ -21,10 +21,8 @@ export const CardFilm = (props) => {
 CardFilm.propTypes = {
   film: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired,
     poster: PropTypes.string.isRequired,
     preview: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
   }),
   clickTitle: PropTypes.func.isRequired,
   hoverCardHandler: PropTypes.func.isRequired,

@@ -27,6 +27,7 @@ module.exports = {
     extensions: [`.js`, `.jsx`],
     alias: {
       'components': path.join(__dirname, `src/components`),
+      'hocs': path.resolve(__dirname, `src/hocs`),
     }
   },
   devtool: `source-map`

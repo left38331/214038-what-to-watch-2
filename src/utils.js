@@ -1,9 +1,20 @@
-import {films} from './mocks/films';
-
 const genresList = new Set([`All genres`]);
+import {processedData} from './reducers/actions-async';
 
-films.forEach((film) => {
-  genresList.add(film.genre);
-});
+const getAllGenres = (films) => {
+  films.forEach((film) => {
+    genresList.add(film.genre);
+  });
 
-export {genresList};
+  return [...genresList];
+};
+
+const getFilmsByGenre = (genre) => {
+  if (genre === `All genres`) {
+    return processedData;
+  }
+
+  return processedData.filter((film) => film.genre === genre);
+};
+
+export {getAllGenres, getFilmsByGenre};
