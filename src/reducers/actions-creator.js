@@ -6,9 +6,9 @@ export const ActionCreator = {
     payload: genre
   }),
 
-  changeFilmsList: (genre) => ({
+  changeFilmsList: (genre) => (dispatch, getState) => dispatch({
     type: `CHANGE_FILMS_LIST`,
-    payload: getFilmsByGenre(genre)
+    payload: getFilmsByGenre(genre, getState)
   }),
 
   loadFilms: (films) => ({

@@ -1,5 +1,4 @@
 const genresList = new Set([`All genres`]);
-import {processedData} from './reducers/actions-async';
 
 const getAllGenres = (films) => {
   films.forEach((film) => {
@@ -9,12 +8,12 @@ const getAllGenres = (films) => {
   return [...genresList];
 };
 
-const getFilmsByGenre = (genre) => {
+const getFilmsByGenre = (genre, getState) => {
   if (genre === `All genres`) {
-    return processedData;
+    return getState().listCardFilms;
   }
 
-  return processedData.filter((film) => film.genre === genre);
+  return getState().listCardFilms.filter((film) => film.genre === genre);
 };
 
 export {getAllGenres, getFilmsByGenre};

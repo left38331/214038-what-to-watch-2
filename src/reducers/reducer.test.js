@@ -19,7 +19,8 @@ describe(`Reducer works correctly`, () => {
     expect(reducer(undefined, {})).toEqual({
       genre: `All genres`,
       listCardFilms: [],
-      genresList: []
+      genresList: [],
+      activeFilms: []
     });
   });
 

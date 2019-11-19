@@ -20,7 +20,8 @@ it(`Render correctly page-content component`, () => {
   const store = createStore(() => ({
     genre: `All genres`,
     listCardFilms: films,
-    genresList: [`drama`, `action`, `fantasy`]
+    genresList: [`drama`, `action`, `fantasy`],
+    activeFilms: []
   }));
   const props = {
     films

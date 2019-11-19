@@ -1,6 +1,7 @@
 const initialState = {
   genre: `All genres`,
   listCardFilms: [],
+  activeFilms: [],
   genresList: []
 };
 
@@ -10,7 +11,7 @@ export const reducer = (state = initialState, action) => {
       genre: action.payload
     });
     case `CHANGE_FILMS_LIST`: return Object.assign({}, state, {
-      listCardFilms: action.payload
+      activeFilms: action.payload
     });
     case `LOAD_FILMS`: return Object.assign({}, state, {
       listCardFilms: action.payload

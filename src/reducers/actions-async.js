@@ -16,4 +16,4 @@ const Operation = {
   }
 };
 
-export {Operation, processedData};
+export {Operation};

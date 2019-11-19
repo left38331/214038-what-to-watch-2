@@ -20,6 +20,7 @@ it(`Render correctly movies-list component`, () => {
     leaveCardHandler: ()=>{},
     isPlaying: -1,
     clickTitle: ()=>{},
+    activeFilms: []
   };
   const moviesListComponent = renderer.create(<MoviesList {...props}/>, options).toJSON();
 
