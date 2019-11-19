@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {ActionCreator} from '../../reducer';
+import {ActionCreator} from '../../reducers/actions-creator';
 import {connect} from 'react-redux';
 
 export const GenreList = (props) => {

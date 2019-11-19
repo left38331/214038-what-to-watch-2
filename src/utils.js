@@ -1,9 +1,19 @@
-import {films} from './mocks/films';
-
 const genresList = new Set([`All genres`]);
 
-films.forEach((film) => {
-  genresList.add(film.genre);
-});
+const getAllGenres = (films) => {
+  films.forEach((film) => {
+    genresList.add(film.genre);
+  });
 
-export {genresList};
+  return [...genresList];
+};
+
+const getFilmsByGenre = (genre, getState) => {
+  if (genre === `All genres`) {
+    return getState().listCardFilms;
+  }
+
+  return getState().listCardFilms.filter((film) => film.genre === genre);
+};
+
+export {getAllGenres, getFilmsByGenre};

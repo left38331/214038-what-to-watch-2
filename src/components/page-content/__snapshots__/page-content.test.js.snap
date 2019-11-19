@@ -16,14 +16,14 @@ exports[`Render correctly page-content component 1`] = `
       className="catalog__genres-list"
     >
       <li
-        className="catalog__genres-item catalog__genres-item--active "
+        className="catalog__genres-item  "
       >
         <a
           className="catalog__genres-link"
           href="#"
           onClick={[Function]}
         >
-          All genres
+          drama
         </a>
       </li>
       <li
@@ -34,7 +34,7 @@ exports[`Render correctly page-content component 1`] = `
           href="#"
           onClick={[Function]}
         >
-          Fantasy
+          action
         </a>
       </li>
       <li
@@ -45,29 +45,7 @@ exports[`Render correctly page-content component 1`] = `
           href="#"
           onClick={[Function]}
         >
-          Drama
-        </a>
-      </li>
-      <li
-        className="catalog__genres-item  "
-      >
-        <a
-          className="catalog__genres-link"
-          href="#"
-          onClick={[Function]}
-        >
-          Adventure
-        </a>
-      </li>
-      <li
-        className="catalog__genres-item  "
-      >
-        <a
-          className="catalog__genres-link"
-          href="#"
-          onClick={[Function]}
-        >
-          Action
+          fantasy
         </a>
       </li>
     </ul>
@@ -94,7 +72,7 @@ exports[`Render correctly page-content component 1`] = `
         >
           <a
             className="small-movie-card__link"
-            href="movie-page.html"
+            href="#"
             onClick={[Function]}
           >
             Fantastic Beats
@@ -121,7 +99,7 @@ exports[`Render correctly page-content component 1`] = `
         >
           <a
             className="small-movie-card__link"
-            href="movie-page.html"
+            href="#"
             onClick={[Function]}
           >
             Bohemian Rhapsody
@@ -148,7 +126,7 @@ exports[`Render correctly page-content component 1`] = `
         >
           <a
             className="small-movie-card__link"
-            href="movie-page.html"
+            href="#"
             onClick={[Function]}
           >
             Macbeth.jpg
@@ -175,7 +153,7 @@ exports[`Render correctly page-content component 1`] = `
         >
           <a
             className="small-movie-card__link"
-            href="movie-page.html"
+            href="#"
             onClick={[Function]}
           >
             Aviator
@@ -202,7 +180,7 @@ exports[`Render correctly page-content component 1`] = `
         >
           <a
             className="small-movie-card__link"
-            href="movie-page.html"
+            href="#"
             onClick={[Function]}
           >
             War of the worlds
