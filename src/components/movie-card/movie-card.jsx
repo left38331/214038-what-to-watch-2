@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export const MovieCard = () => {
+export const MovieCard = (props) => {
   return <section className="movie-card">
     <div className="movie-card__bg">
       <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel"/>
@@ -19,7 +20,7 @@ export const MovieCard = () => {
 
       <div className="user-block">
         <div className="user-block__avatar">
-          <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
+          {props.isAuthorizationRequired ? <a href="#">Sign In</a> : <img src={`https://htmlacademy-react-2.appspot.com/${props.avatar}`} alt="User avatar" width="63" height="63"/>}
         </div>
       </div>
     </header>
@@ -55,4 +56,9 @@ export const MovieCard = () => {
       </div>
     </div>
   </section>;
+};
+
+MovieCard.propTypes = {
+  avatar: PropTypes.string.isRequired,
+  isAuthorizationRequired: PropTypes.bool.isRequired,
 };

@@ -19,5 +19,15 @@ export const ActionCreator = {
   getGenres: (genres) => ({
     type: `GET_GENRE`,
     payload: genres
-  })
+  }),
+
+  requireAuthorization: (status) => ({
+    type: `REQUIRE_AUTHORIZATION`,
+    payload: status
+  }),
+
+  singInUser: (userData) => ({
+    type: `SING_IN_USER`,
+    payload: userData
+  }),
 };

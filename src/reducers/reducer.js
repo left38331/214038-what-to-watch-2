@@ -2,7 +2,12 @@ const initialState = {
   genre: `All genres`,
   listCardFilms: [],
   activeFilms: [],
-  genresList: []
+  genresList: [],
+  isAuthorizationRequired: true,
+  avatarUrl: ``,
+  email: ``,
+  id: ``,
+  name: ``
 };
 
 export const reducer = (state = initialState, action) => {
@@ -18,6 +23,15 @@ export const reducer = (state = initialState, action) => {
     });
     case `GET_GENRE`: return Object.assign({}, state, {
       genresList: action.payload
+    });
+    case `REQUIRE_AUTHORIZATION`: return Object.assign({}, state, {
+      isAuthorizationRequired: action.payload
+    });
+    case `SING_IN_USER`: return Object.assign({}, state, {
+      email: action.payload.email,
+      id: action.payload.id,
+      avatarUrl: action.payload.avatar_url,
+      name: action.payload.name,
     });
   }
 

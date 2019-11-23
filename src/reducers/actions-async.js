@@ -13,6 +13,19 @@ const Operation = {
         dispatch(ActionCreator.loadFilms(processedData));
         dispatch(ActionCreator.getGenres(getAllGenres(response.data)));
       });
+  },
+
+  postUserLogin: (userData) => (dispatch, getState, api) => {
+    return api.post(`/login`, {
+      email: userData.email,
+      password: userData.password
+    })
+      .then((response) => {
+        if (response) {
+          dispatch(ActionCreator.requireAuthorization(false));
+          dispatch(ActionCreator.singInUser(response.data));
+        }
+      });
   }
 };
 
