@@ -20,7 +20,12 @@ describe(`Reducer works correctly`, () => {
       genre: `All genres`,
       listCardFilms: [],
       genresList: [],
-      activeFilms: []
+      activeFilms: [],
+      avatarUrl: ``,
+      email: ``,
+      id: ``,
+      isAuthorizationRequired: true,
+      name: ``
     });
   });
 
