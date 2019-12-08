@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 export const GenreList = (props) => {
   return <ul className="catalog__genres-list">
     {props.genresList.map((item, i) => <li className={`catalog__genres-item ${item === props.genre ? `catalog__genres-item--active` : ``} `} key={i + item}>
-      <a href="#" className="catalog__genres-link" onClick={()=> {
+      <a className="catalog__genres-link" onClick={()=> {
         props.onChangeGenre(item);
       }}>{item}</a>
     </li>)}

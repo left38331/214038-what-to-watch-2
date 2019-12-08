@@ -14,7 +14,7 @@ const withActiveItem = (Component) => {
     }
 
     hoverCardHandler(movieData) {
-      this.timer = setTimeout(()=>{
+      this.timer = setTimeout(() => {
         this.setState({
           activeFilmId: movieData.id
         });

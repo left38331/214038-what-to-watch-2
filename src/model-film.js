@@ -4,7 +4,17 @@ export default class ModelMovie {
     this.title = data[`name`];
     this.poster = data[`poster_image`];
     this.preview = data[`preview_video_link`];
+    this.fullVideo = data[`video_link`];
     this.genre = data[`genre`];
+    this.released = data[`released`];
+    this.runTime = data[`run_time`];
+    this.rating = data[`rating`];
+    this.scoresCount = data[`scores_count`];
+    this.backgroundColor = data[`background_color`];
+    this.backgroundImage = data[`background_image`];
+    this.description = data[`description`];
+    this.director = data[`director`];
+    this.starring = data[`starring`];
   }
 
   static parseMovie(data) {
