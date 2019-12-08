@@ -15,6 +15,13 @@ const Operation = {
       });
   },
 
+  getComments: (idComment) => (dispatch, _, api) => {
+    return api.get(`/comments/${idComment}`)
+      .then((response) => {
+        dispatch(ActionCreator.getComments(response.data));
+      });
+  },
+
   postUserLogin: (userData) => (dispatch, getState, api) => {
     return api.post(`/login`, {
       email: userData.email,
@@ -24,6 +31,18 @@ const Operation = {
         if (response) {
           dispatch(ActionCreator.requireAuthorization(false));
           dispatch(ActionCreator.singInUser(response.data));
+        }
+      });
+  },
+
+  postComment: (review, id) => (dispatch, getState, api) => {
+    return api.post(`/comments/${id}`, review)
+      .then((response) => {
+        if (response) {
+          dispatch(ActionCreator.successPostComment(true));
+        } else {
+          // eslint-disable-next-line no-alert
+          alert(`Что-то пошло не так, попробуйте позже`);
         }
       });
   }

@@ -4,6 +4,7 @@ import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import {compose} from 'recompose';
+import {BrowserRouter} from 'react-router-dom';
 
 import App from 'components/app/app';
 import {reducer} from './reducers/reducer';
@@ -23,7 +24,9 @@ const init = () => {
   store.dispatch(Operation.loadFilms());
 
   ReactDOM.render(<Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>,
   document.querySelector(`#root`)
   );

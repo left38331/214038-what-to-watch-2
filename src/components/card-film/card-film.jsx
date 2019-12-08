@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 import {VideoPlayer} from 'components/video-player/video-player';
 
@@ -14,7 +15,7 @@ export const CardFilm = (props) => {
       />
     </div>
     <h3 className="small-movie-card__title">
-      <a className="small-movie-card__link" href="#" onClick={props.clickTitle}>{props.film.title}</a>
+      <Link to={`/films/${props.film.id}`} className="small-movie-card__link">{props.film.title}</Link>
     </h3>
   </article>;
 };
@@ -24,9 +25,9 @@ CardFilm.propTypes = {
     title: PropTypes.string.isRequired,
     poster: PropTypes.string.isRequired,
     preview: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
   }),
-  clickTitle: PropTypes.func.isRequired,
   hoverCardHandler: PropTypes.func.isRequired,
   leaveCardHandler: PropTypes.func.isRequired,
-  isPlaying: PropTypes.bool.isRequired
+  isPlaying: PropTypes.bool.isRequired,
 };

@@ -16,4 +16,32 @@ const getFilmsByGenre = (genre, getState) => {
   return getState().listCardFilms.filter((film) => film.genre === genre);
 };
 
-export {getAllGenres, getFilmsByGenre};
+const processRatingToWord = (rating) => {
+  let ratingInWord;
+
+  switch (true) {
+    case rating <= 2:
+      ratingInWord = `bad`;
+      break;
+    case rating > 2 && rating <= 4:
+      ratingInWord = `normal`;
+      break;
+    case rating > 4 && rating <= 6:
+      ratingInWord = `good`;
+      break;
+    case rating > 6 && rating <= 8:
+      ratingInWord = `very good`;
+      break;
+    case (rating > 8):
+      ratingInWord = `awesome`;
+      break;
+  }
+
+  return ratingInWord;
+};
+
+const selectRandomItem = (arr) => {
+  return arr[Math.floor(0 + Math.random() * (arr.length + 1))];
+};
+
+export {getAllGenres, getFilmsByGenre, processRatingToWord, selectRandomItem};

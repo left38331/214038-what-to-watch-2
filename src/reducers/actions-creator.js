@@ -1,4 +1,4 @@
-import {getFilmsByGenre} from '../utils';
+import {getFilmsByGenre, selectRandomItem} from '../utils';
 
 export const ActionCreator = {
   changeGenreSelected: (genre) => ({
@@ -13,7 +13,10 @@ export const ActionCreator = {
 
   loadFilms: (films) => ({
     type: `LOAD_FILMS`,
-    payload: films
+    payload: {
+      films,
+      promo: selectRandomItem(films)
+    }
   }),
 
   getGenres: (genres) => ({
@@ -30,4 +33,29 @@ export const ActionCreator = {
     type: `SING_IN_USER`,
     payload: userData
   }),
+
+  setPlayingFilm: (film) => ({
+    type: `SET_PLAYING_FILM`,
+    payload: film
+  }),
+
+  setRunTime: (time) => ({
+    type: `SET_TIME`,
+    payload: time
+  }),
+
+  decrementTime: () => ({
+    type: `DECREMENT_TIME`,
+    payload: 1
+  }),
+
+  getComments: (comments) => ({
+    type: `GET_COMMENTS`,
+    payload: comments
+  }),
+
+  successPostComment: (value) => ({
+    type: `SUCCESS_POST_COMMENT`,
+    payload: value
+  })
 };
