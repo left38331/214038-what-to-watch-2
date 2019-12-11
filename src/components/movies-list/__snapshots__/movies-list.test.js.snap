@@ -24,7 +24,7 @@ exports[`Render correctly movies-list component 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="#"
+        href="/films/1"
         onClick={[Function]}
       >
         Fantastic Beats
@@ -51,7 +51,7 @@ exports[`Render correctly movies-list component 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="#"
+        href="/films/2"
         onClick={[Function]}
       >
         Bohemian Rhapsody
@@ -78,7 +78,7 @@ exports[`Render correctly movies-list component 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="#"
+        href="/films/3"
         onClick={[Function]}
       >
         Macbeth.jpg
@@ -105,7 +105,7 @@ exports[`Render correctly movies-list component 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="#"
+        href="/films/4"
         onClick={[Function]}
       >
         Aviator
@@ -132,7 +132,7 @@ exports[`Render correctly movies-list component 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="#"
+        href="/films/5"
         onClick={[Function]}
       >
         War of the worlds

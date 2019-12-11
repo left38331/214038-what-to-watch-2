@@ -9,7 +9,6 @@ exports[`Render correctly genre list component 1`] = `
   >
     <a
       className="catalog__genres-link"
-      href="#"
       onClick={[Function]}
     >
       Comedies
@@ -20,7 +19,6 @@ exports[`Render correctly genre list component 1`] = `
   >
     <a
       className="catalog__genres-link"
-      href="#"
       onClick={[Function]}
     >
       Drama

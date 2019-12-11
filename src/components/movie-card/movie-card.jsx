@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {ActionCreator} from '../../reducers/actions-creator';
 import {Logo} from 'components/logo/logo';
 import {UserBlock} from 'components/user-block/user-block';
+import {Operation} from '../../reducers/actions-async';
 
 const MovieCard = (props) => {
   return <section className="movie-card">
@@ -42,11 +43,15 @@ const MovieCard = (props) => {
               </svg>
               <span>Play</span>
             </button>
-            <button className="btn btn--list movie-card__button" type="button">
-              <svg viewBox="0 0 19 20" width="19" height="20">
+            <button className="btn btn--list movie-card__button" type="button" onClick={props.isAuthorizationRequired ? ()=>props.history.push(`/login`) : ()=>props.toggleFavoriteFilm(props.promo.id, props.promo.isFavorite ? 0 : 1)}>
+              {!props.isAuthorizationRequired && props.promo.isFavorite ? <React.Fragment>
+                <svg viewBox="0 0 18 14" width="18" height="14">
+                  <use xlinkHref="#in-list"></use>
+                </svg>
+                <span>My list</span>
+              </React.Fragment> : <React.Fragment><svg viewBox="0 0 19 20" width="19" height="20">
                 <use xlinkHref="#add"></use>
-              </svg>
-              <span>My list</span>
+              </svg><span>My list</span></React.Fragment>}
             </button>
           </div>
         </div>
@@ -58,15 +63,45 @@ const MovieCard = (props) => {
 MovieCard.propTypes = {
   avatar: PropTypes.string.isRequired,
   isAuthorizationRequired: PropTypes.bool.isRequired,
+  setPlayingFilm: PropTypes.func.isRequired,
+  toggleFavoriteFilm: PropTypes.func.isRequired,
+  history: PropTypes.func,
+  promo: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      poster: PropTypes.string.isRequired,
+      preview: PropTypes.string.isRequired,
+      genre: PropTypes.string.isRequired,
+      backgroundColor: PropTypes.string.isRequired,
+      released: PropTypes.number.isRequired,
+      rating: PropTypes.number.isRequired,
+      scoresCount: PropTypes.number.isRequired,
+      description: PropTypes.string.isRequired,
+      director: PropTypes.string.isRequired,
+      starring: PropTypes.array.isRequired,
+      runTime: PropTypes.number.isRequired,
+      backgroundImage: PropTypes.string.isRequired,
+      isFavorite: PropTypes.bool.isRequired,
+    }),
+  ]).isRequired,
 };
 
-const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {});
+const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  isAuthorizationRequired: state.isAuthorizationRequired,
+  avatar: state.avatarUrl,
+  promo: state.promo,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   setPlayingFilm: (film) => {
     dispatch(ActionCreator.setPlayingFilm(film));
     dispatch(ActionCreator.setRunTime(film.runTime));
   },
+  toggleFavoriteFilm: (id, status) => {
+    dispatch(Operation.toggleFavoriteFilm(id, status));
+  }
 });
 
+export {MovieCard};
 export default connect(mapStateToProps, mapDispatchToProps)(MovieCard);

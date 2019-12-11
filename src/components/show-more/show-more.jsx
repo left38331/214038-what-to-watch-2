@@ -7,4 +7,9 @@ const ShowMore = (props) => {
   </div>;
 };
 
+ShowMore.propTypes = {
+  onShowMoreBtnClick: PropTypes.func.isRequired,
+  shouldShowMore: PropTypes.bool.isRequired,
+};
+
 export {ShowMore};

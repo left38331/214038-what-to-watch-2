@@ -1,10 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const Logo = () => {
+const Logo = (props) => {
   return <div className="logo">
-    <Link to="/" className="logo__link">
+    <Link to="/" className={`logo__link ${props.isFooter ? `logo__link--light` : ``}`}>
       <span className="logo__letter logo__letter--1">W</span>
       <span className="logo__letter logo__letter--2">T</span>
       <span className="logo__letter logo__letter--3">W</span>
@@ -12,11 +12,8 @@ const Logo = () => {
   </div>;
 };
 
-// Logo.propTypes = {
-//   isPlaying: PropTypes.bool.isRequired,
-//   preview: PropTypes.string.isRequired,
-//   poster: PropTypes.string.isRequired,
-//   muted: PropTypes.bool.isRequired
-// };
+Logo.propTypes = {
+  isFooter: PropTypes.bool,
+};
 
 export {Logo};

@@ -15,6 +15,7 @@ export default class ModelMovie {
     this.description = data[`description`];
     this.director = data[`director`];
     this.starring = data[`starring`];
+    this.isFavorite = data[`is_favorite`];
   }
 
   static parseMovie(data) {

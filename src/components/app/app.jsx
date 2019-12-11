@@ -11,82 +11,100 @@ import withActiveTab from 'hocs/with-active-tab/with-active-tab';
 import withShowMore from 'hocs/with-show-more/with-show-more';
 import withPlayerControl from 'hocs/with-player-control/with-player-control';
 import withCommentAdd from 'hocs/with-comment-add/with-comment-add';
+import withPrivate from 'hocs/withAuth/withAuth';
 import {Operation} from '../../reducers/actions-async';
 import MoviePageDetail from 'components/tabs-movie-details/tabs-movie-details';
 import LargeVideoPlayer from 'components/large-video-player/large-video-player';
 import {ActionCreator} from '../../reducers/actions-creator';
 import AddCommentBlock from 'components/add-comment/add-comment';
+import FavoriteList from 'components/favorite-list/favorite-list';
 
 const WithUserSignWrapped = withUserSign(SignIn);
 const WithActiveTabWrapped = withActiveTab(MoviePageDetail);
 const WithShowMoreWrapped = withShowMore(PageContent);
 const WithPlayerControlWrapped = withPlayerControl(LargeVideoPlayer);
-const WithCommentAddWrapper = withCommentAdd(AddCommentBlock);
+const WithCommentAddWrapper = withPrivate(withCommentAdd(AddCommentBlock));
+const WithFavoriteListWrapped = withPrivate(FavoriteList);
 
-export class App extends React.PureComponent {
-  render() {
-    return (
-      <Switch>
-        <Route path='/' exact render = {(props) => {
-          return (
-            this.props.film ? <WithPlayerControlWrapped
-              film={this.props.promo}
-              setPlayingFilm={this.props.setPlayingFilm}
-            /> : <React.Fragment>
-              <MovieCard
-                {...props}
-                promo={this.props.promo}
-                isAuthorizationRequired={this.props.isAuthorizationRequired}
-                avatar={this.props.avatarUrl}
-              />
-              <WithShowMoreWrapped/>
-            </React.Fragment>
-          );
-        }}/>
-        <Route path='/login' exact render = {(props) => {
-          return (
-            <WithUserSignWrapped
-              {...props}
-              onSubmit={this.props.requireAuthorization}
-              isAuthorizationRequired={this.props.isAuthorizationRequired}
-            />
-          );
-        }}/>
-        <Route exact path='/films/:id' render = {(props) => {
-          this.props.getComments(props.match.params.id);
-          this.props.resetPostCommentStatus();
-          return (
-            this.props.film ? <WithPlayerControlWrapped
-              film={this.props.film}
-              setPlayingFilm={this.props.setPlayingFilm}
-            /> : <WithActiveTabWrapped
-              {...props}
-              currentFilm={this.props.listCardFilms[props.match.params.id - 1]}
-              isAuthorizationRequired={this.props.isAuthorizationRequired}
-              avatar={this.props.avatarUrl}
-            />
-          );
-        }}/>
-        <Route exact path='/films/:id/review' render = {(props) => {
-          return (
-            <WithCommentAddWrapper
-              {...props}
-              currentFilm={this.props.listCardFilms[props.match.params.id - 1]}
-              isAuthorizationRequired={this.props.isAuthorizationRequired}
-              avatar={this.props.avatarUrl}
-              successComment={this.props.isPostComment}
-            />
-          );
-        }}/>
-      </Switch>
-    );
-  }
-}
+const App = (props) => {
+  return (
+    <Switch>
+      <Route path='/' exact render = {() => {
+        return (
+          props.film ? <WithPlayerControlWrapped
+            film={props.promo}
+            setPlayingFilm={props.setPlayingFilm}
+          /> : <React.Fragment>
+            <MovieCard/>
+            <WithShowMoreWrapped/>
+          </React.Fragment>
+        );
+      }}/>
+      <Route path='/login' exact render = {(propsRouter) => {
+        return (
+          <WithUserSignWrapped
+            {...propsRouter}
+            onSubmit={props.requireAuthorization}
+            isAuthorizationRequired={props.isAuthorizationRequired}
+          />
+        );
+      }}/>
+      <Route exact path='/films/:id' render = {(propsRouter) => {
+        props.getComments(propsRouter.match.params.id);
+        props.resetPostCommentStatus();
+        props.setCurrentFilm(props.listCardFilms[propsRouter.match.params.id - 1]);
+        return (
+          props.film ? <WithPlayerControlWrapped
+            film={props.film}
+            setPlayingFilm={props.setPlayingFilm}
+          /> : <WithActiveTabWrapped {...propsRouter} />
+        );
+      }}/>
+      <Route exact path='/films/:id/review' render = {(propsRouter) => <WithCommentAddWrapper {...propsRouter} />}/>
+      <Route exact path='/mylist' render = {(propsRouter) => {
+        props.getFavoriteFilms();
+        return <WithFavoriteListWrapped {...propsRouter} />;
+      }}/>
+    </Switch>
+  );
+};
 
 App.propTypes = {
   isAuthorizationRequired: PropTypes.bool.isRequired,
   requireAuthorization: PropTypes.func.isRequired,
   avatarUrl: PropTypes.string.isRequired,
+  promo: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      posterImage: PropTypes.string.isRequired,
+      previewVideoLink: PropTypes.string.isRequired,
+      videoLink: PropTypes.string.isRequired,
+      backgroundColor: PropTypes.string.isRequired,
+      backgroundImage: PropTypes.string.isRequired,
+      previewImage: PropTypes.string.isRequired,
+      genre: PropTypes.string.isRequired,
+      released: PropTypes.number.isRequired,
+      rating: PropTypes.number.isRequired,
+      scoresCount: PropTypes.number.isRequired,
+      runTime: PropTypes.number.isRequired,
+      description: PropTypes.string.isRequired,
+      director: PropTypes.string.isRequired,
+      starring: PropTypes.arrayOf(PropTypes.string).isRequired,
+      isFavorite: PropTypes.bool.isRequired,
+    }),
+  ]).isRequired,
+  listCardFilms: PropTypes.array.isRequired,
+  setPlayingFilm: PropTypes.func.isRequired,
+  getComments: PropTypes.func.isRequired,
+  resetPostCommentStatus: PropTypes.func.isRequired,
+  setCurrentFilm: PropTypes.func.isRequired,
+  getFavoriteFilms: PropTypes.func.isRequired,
+  film: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ]).isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
@@ -95,7 +113,6 @@ const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   film: state.film,
   listCardFilms: state.listCardFilms,
   promo: state.promo,
-  isPostComment: state.isPostComment
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -110,8 +127,14 @@ const mapDispatchToProps = (dispatch) => ({
   },
   resetPostCommentStatus: () => {
     dispatch(ActionCreator.successPostComment(false));
+  },
+  setCurrentFilm: (film) => {
+    dispatch(ActionCreator.setCurrentFilm(film));
+  },
+  getFavoriteFilms: () => {
+    dispatch(Operation.getFavoriteFilms());
   }
 });
 
+export {App};
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-

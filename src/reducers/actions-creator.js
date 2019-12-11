@@ -1,6 +1,6 @@
-import {getFilmsByGenre, selectRandomItem} from '../utils';
+import {getFilmsByGenre} from '../utils';
 
-export const ActionCreator = {
+const ActionCreator = {
   changeGenreSelected: (genre) => ({
     type: `CHANGE_GENRE_SELECTED`,
     payload: genre
@@ -13,10 +13,12 @@ export const ActionCreator = {
 
   loadFilms: (films) => ({
     type: `LOAD_FILMS`,
-    payload: {
-      films,
-      promo: selectRandomItem(films)
-    }
+    payload: films
+  }),
+
+  loadPromo: (promo) => ({
+    type: `LOAD_PROMO`,
+    payload: promo
   }),
 
   getGenres: (genres) => ({
@@ -57,5 +59,17 @@ export const ActionCreator = {
   successPostComment: (value) => ({
     type: `SUCCESS_POST_COMMENT`,
     payload: value
+  }),
+
+  setCurrentFilm: (film) => ({
+    type: `SET_CURRENT_FILM`,
+    payload: film
+  }),
+
+  getFavoriteFilms: (films) => ({
+    type: `GET_FAVORITE_FILMS`,
+    payload: films
   })
 };
+
+export {ActionCreator};

@@ -15,10 +15,26 @@ const Operation = {
       });
   },
 
+  loadPromo: () => (dispatch, _, api) => {
+    return api.get(`/films/promo`)
+      .then((response) => {
+        processedData = ModelMovie.parseMovie(response.data);
+        dispatch(ActionCreator.loadPromo(processedData));
+      });
+  },
+
   getComments: (idComment) => (dispatch, _, api) => {
     return api.get(`/comments/${idComment}`)
       .then((response) => {
         dispatch(ActionCreator.getComments(response.data));
+      });
+  },
+
+  getFavoriteFilms: () => (dispatch, _, api) => {
+    return api.get(`/favorite`)
+      .then((response) => {
+        processedData = ModelMovie.parseMovies(response.data);
+        dispatch(ActionCreator.getFavoriteFilms(processedData));
       });
   },
 
@@ -40,12 +56,19 @@ const Operation = {
       .then((response) => {
         if (response) {
           dispatch(ActionCreator.successPostComment(true));
-        } else {
-          // eslint-disable-next-line no-alert
-          alert(`Что-то пошло не так, попробуйте позже`);
         }
       });
-  }
+  },
+
+  toggleFavoriteFilm: (id, status) => (dispatch, getState, api) => {
+    return api.post(`/favorite/${id}/${status}`)
+      .then((response) => {
+        if (response) {
+          dispatch(Operation.loadFilms());
+          dispatch(Operation.loadPromo());
+        }
+      });
+  },
 };
 
 export {Operation};

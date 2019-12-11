@@ -40,8 +40,4 @@ const processRatingToWord = (rating) => {
   return ratingInWord;
 };
 
-const selectRandomItem = (arr) => {
-  return arr[Math.floor(0 + Math.random() * (arr.length + 1))];
-};
-
-export {getAllGenres, getFilmsByGenre, processRatingToWord, selectRandomItem};
+export {getAllGenres, getFilmsByGenre, processRatingToWord};

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import {CardFilm} from 'components/card-film/card-film';
 
-export const MoviesList = (props) => {
+const MoviesList = (props) => {
   let films;
 
   if (props.isLikeFilms) {
@@ -11,8 +11,6 @@ export const MoviesList = (props) => {
   } else {
     films = props.listCardFilms;
   }
-
-  // const firstFilms = films.slice(0, 8);
 
   return <div className="catalog__movies-list">
     {films.map((item) => <CardFilm key={item[`id`]} film={item} hoverCardHandler={props.hoverCardHandler} isPlaying={props.isPlaying === item[`id`]} leaveCardHandler={props.leaveCardHandler}/>)}
@@ -33,4 +31,4 @@ MoviesList.propTypes = {
   LikeFilms: PropTypes.array,
 };
 
-
+export {MoviesList};
