@@ -8,14 +8,16 @@ import {UserBlock} from 'components/user-block/user-block';
 import {Operation} from '../../reducers/actions-async';
 
 const AddCommentBlock = (props) => {
-  const currentFilm = props.currentFilm;
+  const {isDisable, isAuthorizationRequired, avatar, successComment} = props;
+  const paramsId = props.match.params.id;
+  const {backgroundColor, backgroundImage, title, poster} = props.currentFilm;
 
-  const handleFormSubmit = (comment, rating, id) => {
+  const handleFormSubmit = (comment, rating, filmId) => {
     const review = {
       rating,
       comment
     };
-    props.postComment(review, id);
+    props.postComment(review, filmId);
   };
 
   const checkNumberSymbols = (evt) => {
@@ -33,11 +35,11 @@ const AddCommentBlock = (props) => {
   };
 
   const renderCommentBlock = () => {
-    return !props.successComment ?
-      <section className="movie-card movie-card--full" style={{background: `${currentFilm.backgroundColor}`}}>
+    return !successComment ?
+      <section className="movie-card movie-card--full" style={{background: `${backgroundColor}`}}>
         <div className="movie-card__header">
           <div className="movie-card__bg">
-            <img src={currentFilm.backgroundImage} alt={currentFilm.title}/>
+            <img src={backgroundImage} alt={title}/>
           </div>
 
           <header className="page-header">
@@ -46,7 +48,7 @@ const AddCommentBlock = (props) => {
             <nav className="breadcrumbs">
               <ul className="breadcrumbs__list">
                 <li className="breadcrumbs__item">
-                  <Link to={`/films/${currentFilm.id}`} className="breadcrumbs__link">{currentFilm.title}</Link>
+                  <Link to={`/films/${paramsId}`} className="breadcrumbs__link">{title}</Link>
                 </li>
                 <li className="breadcrumbs__item">
                   <a className="breadcrumbs__link">Add review</a>
@@ -55,13 +57,13 @@ const AddCommentBlock = (props) => {
             </nav>
 
             <UserBlock
-              isAuthorizationRequired={props.isAuthorizationRequired}
-              avatar={props.avatar}
+              isAuthorizationRequired={isAuthorizationRequired}
+              avatar={avatar}
             />
           </header>
 
           <div className="movie-card__poster movie-card__poster--small">
-            <img src={currentFilm.poster} alt={`${currentFilm.title} poster`} width="218" height="327"/>
+            <img src={poster} alt={`${title} poster`} width="218" height="327"/>
           </div>
         </div>
 
@@ -69,7 +71,7 @@ const AddCommentBlock = (props) => {
           <form action="#" className="add-review__form" onSubmit={(evt) => {
             evt.preventDefault();
             const data = new FormData(evt.currentTarget);
-            handleFormSubmit(data.get(`review-text`), data.get(`rating`), currentFilm.id);
+            handleFormSubmit(data.get(`review-text`), data.get(`rating`), paramsId);
           }}>
             <div className="rating">
               <div className="rating__stars">
@@ -93,14 +95,14 @@ const AddCommentBlock = (props) => {
             <div className="add-review__text">
               <textarea className="add-review__textarea" name="review-text" id="review-text" placeholder="Review text" onChange={checkNumberSymbols}></textarea>
               <div className="add-review__submit">
-                <button className="add-review__btn" type="submit" disabled={props.isDisable} style={props.isDisable ? {opacity: 0.5} : {opacity: 1}}>Post</button>
+                <button className="add-review__btn" type="submit" disabled={isDisable} style={isDisable ? {opacity: 0.5} : {opacity: 1}}>Post</button>
               </div>
 
             </div>
           </form>
         </div>
 
-      </section> : <Redirect to={`/films/${props.match.params.id}`}></Redirect>;
+      </section> : <Redirect to={`/films/${paramsId}`}></Redirect>;
   };
 
   if (props.currentFilm !== undefined) {
@@ -109,19 +111,40 @@ const AddCommentBlock = (props) => {
   return null;
 };
 
-// addCommentBlock.propTypes = {
-//   isPlaying: PropTypes.bool.isRequired,
-//   preview: PropTypes.string.isRequired,
-//   poster: PropTypes.string.isRequired,
-//   muted: PropTypes.bool.isRequired
-// };
+AddCommentBlock.propTypes = {
+  successComment: PropTypes.bool.isRequired,
+  isAuthorizationRequired: PropTypes.bool.isRequired,
+  avatar: PropTypes.string.isRequired,
+  isDisable: PropTypes.bool.isRequired,
+  currentFilm: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      posterImage: PropTypes.string.isRequired,
+      previewVideoLink: PropTypes.string.isRequired,
+      videoLink: PropTypes.string.isRequired,
+      backgroundColor: PropTypes.string.isRequired,
+      backgroundImage: PropTypes.string.isRequired,
+      previewImage: PropTypes.string.isRequired,
+      genre: PropTypes.string.isRequired,
+      released: PropTypes.number.isRequired,
+      rating: PropTypes.number.isRequired,
+      scoresCount: PropTypes.number.isRequired,
+      runTime: PropTypes.number.isRequired,
+      description: PropTypes.string.isRequired,
+      director: PropTypes.string.isRequired,
+      starring: PropTypes.arrayOf(PropTypes.string).isRequired,
+      isFavorite: PropTypes.bool.isRequired,
+    }),
+  ]).isRequired,
+};
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  // isAuthorizationRequired: state.isAuthorizationRequired,
-  // avatarUrl: state.avatarUrl,
-  // film: state.film,
-  // listCardFilms: state.listCardFilms,
-  // promo: state.promo
+  isAuthorizationRequired: state.isAuthorizationRequired,
+  avatar: state.avatarUrl,
+  successComment: state.isPostComment,
+  currentFilm: state.currentFilm
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -130,4 +153,5 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
+export {AddCommentBlock};
 export default connect(mapStateToProps, mapDispatchToProps)(AddCommentBlock);

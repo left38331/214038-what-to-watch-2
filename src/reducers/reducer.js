@@ -4,7 +4,7 @@ const initialState = {
   promo: {},
   activeFilms: [],
   genresList: [],
-  isAuthorizationRequired: false,
+  isAuthorizationRequired: true,
   avatarUrl: ``,
   email: ``,
   id: ``,
@@ -12,10 +12,11 @@ const initialState = {
   film: ``,
   time: ``,
   comments: [],
-  isPostComment: false
+  isPostComment: false,
+  favoriteFilms: []
 };
 
-export const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case `CHANGE_GENRE_SELECTED`: return Object.assign({}, state, {
       genre: action.payload
@@ -24,8 +25,10 @@ export const reducer = (state = initialState, action) => {
       activeFilms: action.payload
     });
     case `LOAD_FILMS`: return Object.assign({}, state, {
-      listCardFilms: action.payload.films,
-      promo: action.payload.promo
+      listCardFilms: action.payload
+    });
+    case `LOAD_PROMO`: return Object.assign({}, state, {
+      promo: action.payload
     });
     case `GET_GENRE`: return Object.assign({}, state, {
       genresList: action.payload
@@ -54,7 +57,15 @@ export const reducer = (state = initialState, action) => {
     case `SUCCESS_POST_COMMENT`: return Object.assign({}, state, {
       isPostComment: action.payload
     });
+    case `SET_CURRENT_FILM`: return Object.assign({}, state, {
+      currentFilm: action.payload
+    });
+    case `GET_FAVORITE_FILMS`: return Object.assign({}, state, {
+      favoriteFilms: action.payload
+    });
   }
 
   return state;
 };
+
+export {reducer};

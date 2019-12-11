@@ -6,7 +6,8 @@ export const films = [
     alt: `Fantastic Beasts: The Crimes of Grindelwald`,
     link: `movie-page.html`,
     preview: `https://www.kinomania.ru/load/n?file=//fs.kinomania.ru/trailers/fbwft-rutlr3_854.mp4`,
-    genre: `Fantasy`
+    genre: `Fantasy`,
+    time: 200
   },
   {
     id: 2,

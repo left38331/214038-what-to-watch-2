@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 import {VideoPlayer} from 'components/video-player/video-player';
 
-export const CardFilm = (props) => {
+const CardFilm = (props) => {
   return <article className="small-movie-card catalog__movies-card" onMouseEnter={()=> props.hoverCardHandler(props.film)} onMouseLeave={props.leaveCardHandler}>
     <div className="small-movie-card__image">
       <VideoPlayer
@@ -31,3 +31,5 @@ CardFilm.propTypes = {
   leaveCardHandler: PropTypes.func.isRequired,
   isPlaying: PropTypes.bool.isRequired,
 };
+
+export {CardFilm};

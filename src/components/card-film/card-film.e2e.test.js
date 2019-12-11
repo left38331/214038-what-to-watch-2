@@ -1,5 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
+
 import {CardFilm} from 'components/card-film/card-film';
 import {films} from '../../mocks/films';
 
@@ -16,8 +17,7 @@ it(`Test click on title`, () => {
   const cardFilmComponent = shallow(<CardFilm {...props}/>);
   const href = cardFilmComponent.find(`.small-movie-card__link`);
 
-  href.simulate(`click`);
-  expect(clickHandler).toHaveBeenCalledTimes(1);
+  expect(href.props().to).toBe(`/films/${props.film.id}`);
 
   cardFilmComponent.simulate(`mouseEnter`);
   expect(hoverHandler).toHaveBeenCalledWith(films[0]);

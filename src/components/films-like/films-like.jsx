@@ -39,4 +39,5 @@ const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   listCardFilms: state.listCardFilms,
 });
 
+export {FilmsLike};
 export default connect(mapStateToProps)(FilmsLike);

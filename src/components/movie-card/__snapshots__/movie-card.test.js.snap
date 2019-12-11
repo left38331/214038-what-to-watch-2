@@ -8,8 +8,7 @@ exports[`Render correctly movie-card component 1`] = `
     className="movie-card__bg"
   >
     <img
-      alt="The Grand Budapest Hotel"
-      src="img/bg-the-grand-budapest-hotel.jpg"
+      alt="Fantastic Beats"
     />
   </div>
   <h1
@@ -24,7 +23,9 @@ exports[`Render correctly movie-card component 1`] = `
       className="logo"
     >
       <a
-        className="logo__link"
+        className="logo__link "
+        href="/"
+        onClick={[Function]}
       >
         <span
           className="logo__letter logo__letter--1"
@@ -46,15 +47,13 @@ exports[`Render correctly movie-card component 1`] = `
     <div
       className="user-block"
     >
-      <div
-        className="user-block__avatar"
+      <a
+        className="user-block__link"
+        href="/login"
+        onClick={[Function]}
       >
-        <a
-          href="#"
-        >
-          Sign In
-        </a>
-      </div>
+        Sign In
+      </a>
     </div>
   </header>
   <div
@@ -67,9 +66,9 @@ exports[`Render correctly movie-card component 1`] = `
         className="movie-card__poster"
       >
         <img
-          alt="The Grand Budapest Hotel poster"
+          alt="Fantastic Beats"
           height="327"
-          src="img/the-grand-budapest-hotel-poster.jpg"
+          src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
           width="218"
         />
       </div>
@@ -79,7 +78,7 @@ exports[`Render correctly movie-card component 1`] = `
         <h2
           className="movie-card__title"
         >
-          The Grand Budapest Hotel
+          Fantastic Beats
         </h2>
         <p
           className="movie-card__meta"
@@ -87,19 +86,18 @@ exports[`Render correctly movie-card component 1`] = `
           <span
             className="movie-card__genre"
           >
-            Drama
+            Fantasy
           </span>
           <span
             className="movie-card__year"
-          >
-            2014
-          </span>
+          />
         </p>
         <div
           className="movie-card__buttons"
         >
           <button
             className="btn btn--play movie-card__button"
+            onClick={[Function]}
             type="button"
           >
             <svg
@@ -117,6 +115,7 @@ exports[`Render correctly movie-card component 1`] = `
           </button>
           <button
             className="btn btn--list movie-card__button"
+            onClick={[Function]}
             type="button"
           >
             <svg

@@ -1,5 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import {BrowserRouter} from 'react-router-dom';
+
 import {MoviesList} from 'components/movies-list/movies-list';
 import {films} from '../../mocks/films';
 
@@ -22,7 +24,7 @@ it(`Render correctly movies-list component`, () => {
     clickTitle: ()=>{},
     activeFilms: []
   };
-  const moviesListComponent = renderer.create(<MoviesList {...props}/>, options).toJSON();
+  const moviesListComponent = renderer.create(<BrowserRouter><MoviesList {...props}/></BrowserRouter>, options).toJSON();
 
   expect(moviesListComponent).toMatchSnapshot();
 });

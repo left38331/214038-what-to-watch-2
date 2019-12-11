@@ -12,7 +12,7 @@ function createNodeMock(element) {
   return null;
 }
 
-it(`Render correctly video=player component`, () => {
+it(`Render correctly video-player component`, () => {
   const options = {createNodeMock};
   const props = {
     isPlaying: false,

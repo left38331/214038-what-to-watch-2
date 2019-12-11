@@ -31,6 +31,10 @@ const withActiveItem = (Component) => {
       }
     }
 
+    componentWillUnmount() {
+      clearTimeout(this.timer);
+    }
+
     render() {
       return <Component
         {...this.props}

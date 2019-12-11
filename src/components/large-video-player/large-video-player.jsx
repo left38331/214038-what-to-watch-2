@@ -14,17 +14,7 @@ class LargeVideoPlayer extends React.PureComponent {
   }
 
   componentDidMount() {
-    const video = this._videoRef.current;
-
-    video.play();
-
-    video.addEventListener('play', () => {
-      this.timerInterval = setInterval(this._tick, 1000);
-    }, false);
-
-    video.addEventListener('pause', () => {
-      clearInterval(this.timerInterval);
-    }, false);
+    this.timerInterval = setInterval(this._tick, 1000);
   }
 
   componentDidUpdate(prevProps) {
@@ -33,8 +23,10 @@ class LargeVideoPlayer extends React.PureComponent {
     if (prevProps.isPlaying !== this.props.isPlaying) {
       if (this.props.isPlaying) {
         video.pause();
+        clearInterval(this.timerInterval);
       } else {
         video.play();
+        this.timerInterval = setInterval(this._tick, 1000);
       }
     }
   }
@@ -70,9 +62,12 @@ class LargeVideoPlayer extends React.PureComponent {
 
   render() {
     return <div className="player">
-      <video ref={this._videoRef} src={this.props.film.fullVideo} className="player__video" onClick={()=>this.props.setStatusPlayer()}></video>
+      <video ref={this._videoRef} src={this.props.film.fullVideo} className="player__video" autoPlay="autoplay"></video>
 
-      <button type="button" className="player__exit" onClick={()=>this.props.setPlayingFilm()}>Exit</button>
+      <button type="button" className="player__exit" onClick={()=>{
+        this.props.setPlayingFilm();
+        clearInterval(this.timerInterval);
+      }}>Exit</button>
 
       <div className="player__controls">
         <div className="player__controls-row">
@@ -84,7 +79,7 @@ class LargeVideoPlayer extends React.PureComponent {
         </div>
 
         <div className="player__controls-row">
-          <button type="button" className="player__play">
+          <button type="button" className="player__play" style={{background: `red`}} onClick={()=>this.props.setStatusPlayer()}>
             <svg viewBox="0 0 19 19" width="19" height="19">
               <use xlinkHref="#play-s"></use>
             </svg>
@@ -104,12 +99,20 @@ class LargeVideoPlayer extends React.PureComponent {
   }
 }
 
-// LargeVideoPlayer.propTypes = {
-//   isPlaying: PropTypes.bool.isRequired,
-//   preview: PropTypes.string.isRequired,
-//   poster: PropTypes.string.isRequired,
-//   muted: PropTypes.bool.isRequired
-// };
+LargeVideoPlayer.propTypes = {
+  isPlaying: PropTypes.bool.isRequired,
+  onTimeTick: PropTypes.func.isRequired,
+  time: PropTypes.number.isRequired,
+  setStatusPlayer: PropTypes.func.isRequired,
+  setPlayingFilm: PropTypes.func.isRequired,
+  film: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      runTime: PropTypes.number.isRequired,
+    }),
+  ]).isRequired,
+};
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   time: state.time
@@ -119,4 +122,5 @@ const mapDispatchToProps = (dispatch) => ({
   onTimeTick: (time) => dispatch(ActionCreator.decrementTime(time))
 });
 
+export {LargeVideoPlayer};
 export default connect(mapStateToProps, mapDispatchToProps)(LargeVideoPlayer);

@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import {ActionCreator} from './reducers/actions-creator';
 
 const createAPI = (dispatch) => {
@@ -12,8 +13,6 @@ const createAPI = (dispatch) => {
   const onFail = (err) => {
     if (err.response.status === 401) {
       dispatch(ActionCreator.requireAuthorization(true));
-      // eslint-disable-next-line no-alert
-      alert(`Что-то с логином`);
     }
   };
 
