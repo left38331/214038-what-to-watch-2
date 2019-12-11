@@ -29,13 +29,15 @@ const WithFavoriteListWrapped = withPrivate(FavoriteList);
 const App = (props) => {
   return (
     <Switch>
-      <Route path='/' exact render = {() => {
+      <Route path='/' exact render = {(propsRouter) => {
         return (
           props.film ? <WithPlayerControlWrapped
             film={props.promo}
             setPlayingFilm={props.setPlayingFilm}
           /> : <React.Fragment>
-            <MovieCard/>
+            <MovieCard
+              {...propsRouter}
+            />
             <WithShowMoreWrapped/>
           </React.Fragment>
         );

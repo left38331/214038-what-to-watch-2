@@ -65,7 +65,10 @@ MovieCard.propTypes = {
   isAuthorizationRequired: PropTypes.bool.isRequired,
   setPlayingFilm: PropTypes.func.isRequired,
   toggleFavoriteFilm: PropTypes.func.isRequired,
-  history: PropTypes.func,
+  history: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.func,
+  ]),
   promo: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.shape({
