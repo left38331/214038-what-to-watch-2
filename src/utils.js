@@ -29,10 +29,10 @@ const processRatingToWord = (rating) => {
     case rating > 5 && rating <= 8:
       ratingInWord = `good`;
       break;
-    case rating > 8 && rating <= 10:
+    case rating > 8 && rating < 10:
       ratingInWord = `very good`;
       break;
-    case (rating > 10):
+    case (rating === 10):
       ratingInWord = `awesome`;
       break;
   }
