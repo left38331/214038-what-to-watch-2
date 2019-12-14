@@ -6,16 +6,21 @@ exports[`Render correctly card-film component 1`] = `
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
-  <div
-    className="small-movie-card__image"
+  <a
+    href="/films/1"
+    onClick={[Function]}
   >
-    <video
-      height="175"
-      poster="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
-      src="https://www.kinomania.ru/load/n?file=//fs.kinomania.ru/trailers/fbwft-rutlr3_854.mp4"
-      width="280"
-    />
-  </div>
+    <div
+      className="small-movie-card__image"
+    >
+      <video
+        height="175"
+        poster="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+        src="https://www.kinomania.ru/load/n?file=//fs.kinomania.ru/trailers/fbwft-rutlr3_854.mp4"
+        width="280"
+      />
+    </div>
+  </a>
   <h3
     className="small-movie-card__title"
   >

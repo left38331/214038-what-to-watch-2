@@ -1,75 +1,92 @@
 import {getFilmsByGenre} from '../utils';
 
+const ActionType = {
+  CHANGE_GENRE_SELECTED: `CHANGE_GENRE_SELECTED`,
+  CHANGE_FILMS_LIST: `CHANGE_FILMS_LIST`,
+  LOAD_FILMS: `LOAD_FILMS`,
+  LOAD_PROMO: `LOAD_PROMO`,
+  GET_GENRE: `GET_GENRE`,
+  REQUIRE_AUTHORIZATION: `REQUIRE_AUTHORIZATION`,
+  SING_IN_USER: `SING_IN_USER`,
+  SET_PLAYING_FILM: `SET_PLAYING_FILM`,
+  SET_TIME: `SET_TIME`,
+  DECREMENT_TIME: `DECREMENT_TIME`,
+  GET_COMMENTS: `GET_COMMENTS`,
+  SUCCESS_POST_COMMENT: `SUCCESS_POST_COMMENT`,
+  SET_CURRENT_FILM: `SET_CURRENT_FILM`,
+  GET_FAVORITE_FILMS: `GET_FAVORITE_FILMS`
+};
+
 const ActionCreator = {
   changeGenreSelected: (genre) => ({
-    type: `CHANGE_GENRE_SELECTED`,
+    type: ActionType.CHANGE_GENRE_SELECTED,
     payload: genre
   }),
 
   changeFilmsList: (genre) => (dispatch, getState) => dispatch({
-    type: `CHANGE_FILMS_LIST`,
+    type: ActionType.CHANGE_FILMS_LIST,
     payload: getFilmsByGenre(genre, getState)
   }),
 
   loadFilms: (films) => ({
-    type: `LOAD_FILMS`,
+    type: ActionType.LOAD_FILMS,
     payload: films
   }),
 
   loadPromo: (promo) => ({
-    type: `LOAD_PROMO`,
+    type: ActionType.LOAD_PROMO,
     payload: promo
   }),
 
   getGenres: (genres) => ({
-    type: `GET_GENRE`,
+    type: ActionType.GET_GENRE,
     payload: genres
   }),
 
   requireAuthorization: (status) => ({
-    type: `REQUIRE_AUTHORIZATION`,
+    type: ActionType.REQUIRE_AUTHORIZATION,
     payload: status
   }),
 
   singInUser: (userData) => ({
-    type: `SING_IN_USER`,
+    type: ActionType.SING_IN_USER,
     payload: userData
   }),
 
   setPlayingFilm: (film) => ({
-    type: `SET_PLAYING_FILM`,
+    type: ActionType.SET_PLAYING_FILM,
     payload: film
   }),
 
   setRunTime: (time) => ({
-    type: `SET_TIME`,
+    type: ActionType.SET_TIME,
     payload: time
   }),
 
   decrementTime: () => ({
-    type: `DECREMENT_TIME`,
+    type: ActionType.DECREMENT_TIME,
     payload: 1
   }),
 
   getComments: (comments) => ({
-    type: `GET_COMMENTS`,
+    type: ActionType.GET_COMMENTS,
     payload: comments
   }),
 
   successPostComment: (value) => ({
-    type: `SUCCESS_POST_COMMENT`,
+    type: ActionType.SUCCESS_POST_COMMENT,
     payload: value
   }),
 
   setCurrentFilm: (film) => ({
-    type: `SET_CURRENT_FILM`,
+    type: ActionType.SET_CURRENT_FILM,
     payload: film
   }),
 
   getFavoriteFilms: (films) => ({
-    type: `GET_FAVORITE_FILMS`,
+    type: ActionType.GET_FAVORITE_FILMS,
     payload: films
   })
 };
 
-export {ActionCreator};
+export {ActionCreator, ActionType};

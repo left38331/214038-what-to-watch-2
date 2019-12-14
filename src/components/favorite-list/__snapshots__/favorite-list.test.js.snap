@@ -68,15 +68,20 @@ exports[`Render correctly favorite-film block component 1`] = `
       <article
         className="small-movie-card catalog__movies-card"
       >
-        <div
-          className="small-movie-card__image"
+        <a
+          href="/films/1"
+          onClick={[Function]}
         >
-          <img
-            alt="Fantastic Beats"
-            height="175"
-            width="280"
-          />
-        </div>
+          <div
+            className="small-movie-card__image"
+          >
+            <img
+              alt="Fantastic Beats"
+              height="175"
+              width="280"
+            />
+          </div>
+        </a>
         <h3
           className="small-movie-card__title"
         >
@@ -92,15 +97,20 @@ exports[`Render correctly favorite-film block component 1`] = `
       <article
         className="small-movie-card catalog__movies-card"
       >
-        <div
-          className="small-movie-card__image"
+        <a
+          href="/films/2"
+          onClick={[Function]}
         >
-          <img
-            alt="Bohemian Rhapsody"
-            height="175"
-            width="280"
-          />
-        </div>
+          <div
+            className="small-movie-card__image"
+          >
+            <img
+              alt="Bohemian Rhapsody"
+              height="175"
+              width="280"
+            />
+          </div>
+        </a>
         <h3
           className="small-movie-card__title"
         >
@@ -116,15 +126,20 @@ exports[`Render correctly favorite-film block component 1`] = `
       <article
         className="small-movie-card catalog__movies-card"
       >
-        <div
-          className="small-movie-card__image"
+        <a
+          href="/films/3"
+          onClick={[Function]}
         >
-          <img
-            alt="Macbeth.jpg"
-            height="175"
-            width="280"
-          />
-        </div>
+          <div
+            className="small-movie-card__image"
+          >
+            <img
+              alt="Macbeth.jpg"
+              height="175"
+              width="280"
+            />
+          </div>
+        </a>
         <h3
           className="small-movie-card__title"
         >
@@ -140,15 +155,20 @@ exports[`Render correctly favorite-film block component 1`] = `
       <article
         className="small-movie-card catalog__movies-card"
       >
-        <div
-          className="small-movie-card__image"
+        <a
+          href="/films/4"
+          onClick={[Function]}
         >
-          <img
-            alt="Aviator"
-            height="175"
-            width="280"
-          />
-        </div>
+          <div
+            className="small-movie-card__image"
+          >
+            <img
+              alt="Aviator"
+              height="175"
+              width="280"
+            />
+          </div>
+        </a>
         <h3
           className="small-movie-card__title"
         >
@@ -164,15 +184,20 @@ exports[`Render correctly favorite-film block component 1`] = `
       <article
         className="small-movie-card catalog__movies-card"
       >
-        <div
-          className="small-movie-card__image"
+        <a
+          href="/films/5"
+          onClick={[Function]}
         >
-          <img
-            alt="War of the worlds"
-            height="175"
-            width="280"
-          />
-        </div>
+          <div
+            className="small-movie-card__image"
+          >
+            <img
+              alt="War of the worlds"
+              height="175"
+              width="280"
+            />
+          </div>
+        </a>
         <h3
           className="small-movie-card__title"
         >

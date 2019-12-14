@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import {Provider} from 'react-redux';
 
-import MoviePageDetail from 'components/tabs-movie-details/tabs-movie-details';
+import MoviePageDetail from 'components/movie-page-detail/movie-page-detail';
 import {films} from '../../mocks/films';
 
 it(`Render correctly movie-page-detail component`, () => {

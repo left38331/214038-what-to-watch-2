@@ -9,16 +9,21 @@ exports[`Render correctly movies-list component 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/1"
+      onClick={[Function]}
     >
-      <video
-        height="175"
-        poster="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
-        src="https://www.kinomania.ru/load/n?file=//fs.kinomania.ru/trailers/fbwft-rutlr3_854.mp4"
-        width="280"
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height="175"
+          poster="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+          src="https://www.kinomania.ru/load/n?file=//fs.kinomania.ru/trailers/fbwft-rutlr3_854.mp4"
+          width="280"
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
@@ -36,16 +41,21 @@ exports[`Render correctly movies-list component 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/2"
+      onClick={[Function]}
     >
-      <video
-        height="175"
-        poster="img/bohemian-rhapsody.jpg"
-        src="https://www.kinomania.ru/load/n?file=//fs.kinomania.ru/media/video/c/76/c766c75666111cab4aa6bb75a5424bc0.480.mp4"
-        width="280"
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height="175"
+          poster="img/bohemian-rhapsody.jpg"
+          src="https://www.kinomania.ru/load/n?file=//fs.kinomania.ru/media/video/c/76/c766c75666111cab4aa6bb75a5424bc0.480.mp4"
+          width="280"
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
@@ -63,16 +73,21 @@ exports[`Render correctly movies-list component 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/3"
+      onClick={[Function]}
     >
-      <video
-        height="175"
-        poster="img/macbeth.jpg"
-        src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
-        width="280"
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height="175"
+          poster="img/macbeth.jpg"
+          src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+          width="280"
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
@@ -90,16 +105,21 @@ exports[`Render correctly movies-list component 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/4"
+      onClick={[Function]}
     >
-      <video
-        height="175"
-        poster="img/aviator.jpg"
-        src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-        width="280"
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height="175"
+          poster="img/aviator.jpg"
+          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+          width="280"
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >
@@ -117,16 +137,21 @@ exports[`Render correctly movies-list component 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/films/5"
+      onClick={[Function]}
     >
-      <video
-        height="175"
-        poster="img/war-of-the-worlds.jpg"
-        src="https://www.kinomania.ru/load/n?file=//fs.kinomania.ru/media/video/5/2a/52ab2988c90e81715008ed5189632b8d.480.mp4"
-        width="280"
-      />
-    </div>
+      <div
+        className="small-movie-card__image"
+      >
+        <video
+          height="175"
+          poster="img/war-of-the-worlds.jpg"
+          src="https://www.kinomania.ru/load/n?file=//fs.kinomania.ru/media/video/5/2a/52ab2988c90e81715008ed5189632b8d.480.mp4"
+          width="280"
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
     >

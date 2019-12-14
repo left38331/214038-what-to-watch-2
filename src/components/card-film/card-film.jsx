@@ -6,14 +6,16 @@ import {VideoPlayer} from 'components/video-player/video-player';
 
 const CardFilm = (props) => {
   return <article className="small-movie-card catalog__movies-card" onMouseEnter={()=> props.hoverCardHandler(props.film)} onMouseLeave={props.leaveCardHandler}>
-    <div className="small-movie-card__image">
-      <VideoPlayer
-        poster={props.film.poster}
-        preview={props.film.preview}
-        isPlaying={props.isPlaying}
-        muted={true}
-      />
-    </div>
+    <Link to={`/films/${props.film.id}`}>
+      <div className="small-movie-card__image">
+        <VideoPlayer
+          poster={props.film.poster}
+          preview={props.film.preview}
+          isPlaying={props.isPlaying}
+          muted={true}
+        />
+      </div>
+    </Link>
     <h3 className="small-movie-card__title">
       <Link to={`/films/${props.film.id}`} className="small-movie-card__link">{props.film.title}</Link>
     </h3>

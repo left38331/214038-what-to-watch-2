@@ -11,9 +11,9 @@ import withActiveTab from 'hocs/with-active-tab/with-active-tab';
 import withShowMore from 'hocs/with-show-more/with-show-more';
 import withPlayerControl from 'hocs/with-player-control/with-player-control';
 import withCommentAdd from 'hocs/with-comment-add/with-comment-add';
-import withPrivate from 'hocs/withAuth/withAuth';
+import withPrivate from 'hocs/with-private/with-private';
 import {Operation} from '../../reducers/actions-async';
-import MoviePageDetail from 'components/tabs-movie-details/tabs-movie-details';
+import MoviePageDetail from 'components/movie-page-detail/movie-page-detail';
 import LargeVideoPlayer from 'components/large-video-player/large-video-player';
 import {ActionCreator} from '../../reducers/actions-creator';
 import AddCommentBlock from 'components/add-comment/add-comment';
@@ -122,7 +122,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(Operation.postUserLogin(userData));
   },
   setPlayingFilm: () => {
-    dispatch(ActionCreator.setPlayingFilm(false));
+    dispatch(ActionCreator.setPlayingFilm(``));
   },
   getComments: (userData) => {
     dispatch(Operation.getComments(userData));

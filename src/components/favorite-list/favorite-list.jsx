@@ -25,9 +25,11 @@ const FavoriteList = (props) => {
       <div className="catalog__movies-list">
         {props.favoriteFilms.map((film, i) => {
           return <article className="small-movie-card catalog__movies-card" key={i}>
-            <div className="small-movie-card__image">
-              <img src={film.backgroundImage} alt={film.title} width="280" height="175"/>
-            </div>
+            <Link to={`/films/${film.id}`}>
+              <div className="small-movie-card__image">
+                <img src={film.backgroundImage} alt={film.title} width="280" height="175"/>
+              </div>
+            </Link>
             <h3 className="small-movie-card__title">
               <Link to={`/films/${film.id}`} className="small-movie-card__link">{film.title}</Link>
             </h3>

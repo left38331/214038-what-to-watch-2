@@ -13,6 +13,10 @@ const withActiveItem = (Component) => {
       };
     }
 
+    componentWillUnmount() {
+      clearTimeout(this.timer);
+    }
+
     hoverCardHandler(movieData) {
       this.timer = setTimeout(() => {
         this.setState({
@@ -29,10 +33,6 @@ const withActiveItem = (Component) => {
       if (this.timer) {
         clearTimeout(this.timer);
       }
-    }
-
-    componentWillUnmount() {
-      clearTimeout(this.timer);
     }
 
     render() {

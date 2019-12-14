@@ -52,11 +52,6 @@ exports[`Render correctly large video player component 1`] = `
       <button
         className="player__play"
         onClick={[Function]}
-        style={
-          Object {
-            "background": "red",
-          }
-        }
         type="button"
       >
         <svg

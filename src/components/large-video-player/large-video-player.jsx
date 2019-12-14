@@ -79,9 +79,9 @@ class LargeVideoPlayer extends React.PureComponent {
         </div>
 
         <div className="player__controls-row">
-          <button type="button" className="player__play" style={{background: `red`}} onClick={()=>this.props.setStatusPlayer()}>
+          <button type="button" className="player__play" onClick={()=>this.props.setStatusPlayer()}>
             <svg viewBox="0 0 19 19" width="19" height="19">
-              <use xlinkHref="#play-s"></use>
+              {this.props.isPlaying ? <use xlinkHref="#play-s"></use> : <use xlinkHref="#pauses"></use>}
             </svg>
             <span>Play</span>
           </button>

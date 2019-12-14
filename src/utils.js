@@ -20,19 +20,19 @@ const processRatingToWord = (rating) => {
   let ratingInWord;
 
   switch (true) {
-    case rating <= 2:
+    case rating <= 3:
       ratingInWord = `bad`;
       break;
-    case rating > 2 && rating <= 4:
+    case rating > 3 && rating <= 5:
       ratingInWord = `normal`;
       break;
-    case rating > 4 && rating <= 6:
+    case rating > 5 && rating <= 8:
       ratingInWord = `good`;
       break;
-    case rating > 6 && rating <= 8:
+    case rating > 8 && rating <= 10:
       ratingInWord = `very good`;
       break;
-    case (rating > 8):
+    case (rating > 10):
       ratingInWord = `awesome`;
       break;
   }
